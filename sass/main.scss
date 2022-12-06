@@ -4,9 +4,9 @@
     border: none;
     outline: none;
     border-radius: 50px;
-    padding:15px 20px;
-    font-weight: bold;
+    font-weight: 500;
     color: #ffffff;
+    box-shadow: 2px 2px 20px #b1b1b1;
     cursor: pointer;
 }
 
@@ -17,6 +17,7 @@ $color-tertiaire:#99E2D0;
 $familytitre : 'Shrikhand', cursive;
 *{
     font-family: 'Roboto', sans-serif;
+    font-style: normal;
     // font-family: 'Shrikhand', cursive;
 }
 
@@ -25,7 +26,7 @@ body{
  min-height: 100vh;
 }
 header{
-    padding: 5%;
+    padding: 1rem;
     display: flex;
     position: relative;
     z-index: 100;
@@ -44,6 +45,12 @@ header{
         width: 100%;
         max-width: 300px;
         border: none;
+    }
+    a{
+        i{
+            font-size: 1.5rem;
+            color: black;
+        }
     }
 }
 
@@ -80,6 +87,9 @@ header{
     }
     button{
         @include button;
+        padding:1rem;
+        font-size: 1rem;
+        font-weight: 500;
         // background: rgb(255,121,218);
         // background: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
         // border: none;
@@ -93,6 +103,9 @@ header{
 
 .fonctionnement{
     padding: 10% 5%;
+    h2{
+        font-weight: bold;
+    }
     .card-fonctionnement{
         display: flex;
         align-items: center;
@@ -101,17 +114,29 @@ header{
         width: 90%;
         background-color: #f7f7f7;
         margin: 10% auto;
-        height: 60px;
+        height: 70px;
         border-radius: 20px;
-        box-shadow: 2px 2px 5px rgb(173, 173, 173);
-        i{
-            position: absolute;
-            left: 10%;
+        color: black;
+        box-shadow: 2px 2px 10px rgb(201, 201, 201);
+        &:last-child{
+            background-color: #f5edff;
         }
-        h2{
-            font-size: 17px;
-            font-weight: bold;
+        .text-fonctionnement{
+
+            display: flex;
+            align-items: center;
+            width: 80%;
+            max-width: 300px;
+            i{
+                margin-right: 1.5rem;
+                color: #7e7e7e;
+            }
+            h2{
+                font-size: 17px;
+                font-weight: 1000;
+            }
         }
+
         .number{
             position: absolute;
             left: 0;
@@ -132,15 +157,20 @@ header{
     background-color: #f6f6f6;
     padding-bottom: 5%;
 
+    h2{
+        width: 90%;
+        margin: auto;
+        font-weight: bold;
+        padding: 50px 0 5px 0;
+    }
     .card-restaurant{
         display: block;
         width: 90%;
-        margin: 5%auto;
+        margin: 5%;
         max-width: 350px;
-        height: 225px;
         background-color: #ffffff;
-        border-radius: 20px ;
-        box-shadow: 2px 2px 5px rgb(124, 124, 124);
+        border-radius: 10px ;
+        box-shadow: 2px 2px 10px rgb(209, 209, 209);
         position: relative;
         cursor: pointer;
         text-decoration: none;
@@ -165,6 +195,8 @@ header{
         img{
             width: 100% ;
             height: 70%;
+            max-height: 160px;
+
             border-radius: 20px 20px 0 0 ;
             object-fit: cover;
         }
@@ -177,11 +209,15 @@ header{
             align-items: center;
             width: 90%;
             margin: auto;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
 
             .marque-restaurant{
-                h4{
-                    margin-top: 2%;
-                    font-weight: 200;
+                line-height: 1.5rem;
+
+                h4,h3{
+                    margin: 0;
+                    padding: 0;
                 }
             }
             
@@ -250,7 +286,7 @@ header{
         margin-top : -2rem ;
         height: auto;
         border-radius: 20px 20px 0px 0px;
-        background-color: #f7f7f7;
+        background-color: #f6f6f6;
         padding: 20px 10px;
 
 
@@ -259,6 +295,10 @@ header{
             justify-content: space-between;
             width: 90%;
             margin: auto;
+            h3{
+                font-family: "Shrikhand", cursive;
+                font-weight: 500;
+            }
     
         }
 
@@ -270,6 +310,7 @@ header{
                 text-transform: uppercase;
                 position: relative;
                 width: 30%;
+                margin-bottom: 0.8rem;
                 &::after{
                     content: "";
                     position: absolute;
@@ -292,7 +333,7 @@ header{
                 background-color: #ffffff;
                 font-size: 12px;
                 
-                box-shadow: 2px 2px 2px #c7c7c7;
+                box-shadow: 1px 1px 10px #dadada;
                 cursor: pointer;
 
                 animation: itemAppear .6s;
@@ -305,10 +346,12 @@ header{
                     margin-left: 5px;
                     width: 90%;
                     padding: 0.2rem;
+                    line-height: 1.3rem;
                     span{
                         display: block;
                         &.strong-text{
                             font-weight: bold;
+                            font-size: 0.9rem;
                         }
                         
                     }
@@ -319,6 +362,9 @@ header{
                     display: flex;
                     justify-content: center;
                     font-weight: bold;
+                    height: 100%;
+                    align-items: flex-end;
+                    margin-bottom: 1rem;
                 }
                     
 
@@ -347,7 +393,7 @@ header{
                     border-radius: 10px ;
                     .check{
 
-                        width: 15%;
+                        width: 20%;
                         visibility: visible;
                         i{
                             opacity: 1;
@@ -362,6 +408,8 @@ header{
             @include button;
             margin: auto;
             display: block;
+            margin-top: 2rem;
+            padding:1rem 3rem;
         }
     
 }
@@ -422,19 +470,24 @@ header{
 footer{
     background-color: #353535;
     color: #ffffff;
-    padding: 5%;
+    padding: 2rem;
     h2{
         font-family: $familytitre;
         font-weight: 200;
         font-size: 18px;
     }
     nav{
-        margin-top: 20px;
+        margin-top: 2rem;
         ul{
             list-style: none;
 
             li{
                 margin-top: 10px;
+                i{
+                    margin-right: 0.5rem;
+                    width: 20px;
+                    text-align: center;
+                }
                 a{
                     text-decoration: none;
                     color: #ffffff;

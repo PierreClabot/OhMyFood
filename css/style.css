@@ -1,5 +1,6 @@
 * {
   font-family: "Roboto", sans-serif;
+  font-style: normal;
 }
 
 body {
@@ -8,7 +9,7 @@ body {
 }
 
 header {
-  padding: 5%;
+  padding: 1rem;
   display: flex;
   position: relative;
   z-index: 100;
@@ -28,6 +29,10 @@ header .localisation {
   width: 100%;
   max-width: 300px;
   border: none;
+}
+header a i {
+  font-size: 1.5rem;
+  color: black;
 }
 
 .section-localisation {
@@ -69,14 +74,20 @@ header .localisation {
   border: none;
   outline: none;
   border-radius: 50px;
-  padding: 15px 20px;
-  font-weight: bold;
+  font-weight: 500;
   color: #ffffff;
+  box-shadow: 2px 2px 20px #b1b1b1;
   cursor: pointer;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .fonctionnement {
   padding: 10% 5%;
+}
+.fonctionnement h2 {
+  font-weight: bold;
 }
 .fonctionnement .card-fonctionnement {
   display: flex;
@@ -86,17 +97,27 @@ header .localisation {
   width: 90%;
   background-color: #f7f7f7;
   margin: 10% auto;
-  height: 60px;
+  height: 70px;
   border-radius: 20px;
-  box-shadow: 2px 2px 5px rgb(173, 173, 173);
+  color: black;
+  box-shadow: 2px 2px 10px rgb(201, 201, 201);
 }
-.fonctionnement .card-fonctionnement i {
-  position: absolute;
-  left: 10%;
+.fonctionnement .card-fonctionnement:last-child {
+  background-color: #f5edff;
 }
-.fonctionnement .card-fonctionnement h2 {
+.fonctionnement .card-fonctionnement .text-fonctionnement {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  max-width: 300px;
+}
+.fonctionnement .card-fonctionnement .text-fonctionnement i {
+  margin-right: 1.5rem;
+  color: #7e7e7e;
+}
+.fonctionnement .card-fonctionnement .text-fonctionnement h2 {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 1000;
 }
 .fonctionnement .card-fonctionnement .number {
   position: absolute;
@@ -117,15 +138,20 @@ header .localisation {
   background-color: #f6f6f6;
   padding-bottom: 5%;
 }
+.restaurant h2 {
+  width: 90%;
+  margin: auto;
+  font-weight: bold;
+  padding: 50px 0 5px 0;
+}
 .restaurant .card-restaurant {
   display: block;
   width: 90%;
-  margin: 5% auto;
+  margin: 5%;
   max-width: 350px;
-  height: 225px;
   background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 2px 2px 5px rgb(124, 124, 124);
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgb(209, 209, 209);
   position: relative;
   cursor: pointer;
   text-decoration: none;
@@ -147,6 +173,7 @@ header .localisation {
 .restaurant .card-restaurant img {
   width: 100%;
   height: 70%;
+  max-height: 160px;
   border-radius: 20px 20px 0 0;
   object-fit: cover;
 }
@@ -157,10 +184,15 @@ header .localisation {
   align-items: center;
   width: 90%;
   margin: auto;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
 }
-.restaurant .card-restaurant .details-restaurant .marque-restaurant h4 {
-  margin-top: 2%;
-  font-weight: 200;
+.restaurant .card-restaurant .details-restaurant .marque-restaurant {
+  line-height: 1.5rem;
+}
+.restaurant .card-restaurant .details-restaurant .marque-restaurant h4, .restaurant .card-restaurant .details-restaurant .marque-restaurant h3 {
+  margin: 0;
+  padding: 0;
 }
 
 .like {
@@ -215,7 +247,7 @@ header .localisation {
   margin-top: -2rem;
   height: auto;
   border-radius: 20px 20px 0px 0px;
-  background-color: #f7f7f7;
+  background-color: #f6f6f6;
   padding: 20px 10px;
 }
 .container-restaurant .header-restaurant {
@@ -223,6 +255,10 @@ header .localisation {
   justify-content: space-between;
   width: 90%;
   margin: auto;
+}
+.container-restaurant .header-restaurant h3 {
+  font-family: "Shrikhand", cursive;
+  font-weight: 500;
 }
 .container-restaurant .list-plat {
   margin-top: 30px;
@@ -233,6 +269,7 @@ header .localisation {
   text-transform: uppercase;
   position: relative;
   width: 30%;
+  margin-bottom: 0.8rem;
 }
 .container-restaurant .list-plat h3::after {
   content: "";
@@ -253,7 +290,7 @@ header .localisation {
   position: relative;
   background-color: #ffffff;
   font-size: 12px;
-  box-shadow: 2px 2px 2px #c7c7c7;
+  box-shadow: 1px 1px 10px #dadada;
   cursor: pointer;
   animation: itemAppear 0.6s;
   animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
@@ -264,18 +301,23 @@ header .localisation {
   margin-left: 5px;
   width: 90%;
   padding: 0.2rem;
+  line-height: 1.3rem;
 }
 .container-restaurant .list-plat .card-plat .name-plat span {
   display: block;
 }
 .container-restaurant .list-plat .card-plat .name-plat span.strong-text {
   font-weight: bold;
+  font-size: 0.9rem;
 }
 .container-restaurant .list-plat .card-plat .price-plat {
   width: 15%;
   display: flex;
   justify-content: center;
   font-weight: bold;
+  height: 100%;
+  align-items: flex-end;
+  margin-bottom: 1rem;
 }
 .container-restaurant .list-plat .card-plat .check {
   width: 0;
@@ -298,7 +340,7 @@ header .localisation {
   border-radius: 10px;
 }
 .container-restaurant .list-plat .card-plat:hover .check {
-  width: 15%;
+  width: 20%;
   visibility: visible;
 }
 .container-restaurant .list-plat .card-plat:hover .check i {
@@ -311,12 +353,14 @@ header .localisation {
   border: none;
   outline: none;
   border-radius: 50px;
-  padding: 15px 20px;
-  font-weight: bold;
+  font-weight: 500;
   color: #ffffff;
+  box-shadow: 2px 2px 20px #b1b1b1;
   cursor: pointer;
   margin: auto;
   display: block;
+  margin-top: 2rem;
+  padding: 1rem 3rem;
 }
 
 .container-loader {
@@ -373,7 +417,7 @@ header .localisation {
 footer {
   background-color: #353535;
   color: #ffffff;
-  padding: 5%;
+  padding: 2rem;
 }
 footer h2 {
   font-family: "Shrikhand", cursive;
@@ -381,13 +425,18 @@ footer h2 {
   font-size: 18px;
 }
 footer nav {
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 footer nav ul {
   list-style: none;
 }
 footer nav ul li {
   margin-top: 10px;
+}
+footer nav ul li i {
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
 }
 footer nav ul li a {
   text-decoration: none;
