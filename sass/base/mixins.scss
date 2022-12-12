@@ -1,0 +1,11 @@
+@mixin button{
+    background: #ff79da;
+    background: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-weight: 500;
+    color: #ffffff;
+    box-shadow: 2px 2px 20px #b1b1b1;
+    cursor: pointer;
+}

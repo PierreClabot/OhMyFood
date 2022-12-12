@@ -1,0 +1,54 @@
+.container-loader{
+    position: fixed;
+    background-color: rgba(0,0,0,0.3);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 1000;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: popup 0.1s forwards;
+    animation-delay: 2s;
+    .loader{
+        width: 20vh;
+        height: 20vh;
+        position: relative;
+        animation: rotate 2s forwards;
+        .circle{
+            width: 20%;
+            height: 20%;
+            border-radius: 100%;
+            position: absolute;
+        }
+        .circle:nth-child(1)
+        {
+            top: 0;
+            right: 50%;
+            transform: translateX(50%);
+            background-color: $color-primaire;
+        }
+        .circle:nth-child(2)
+        {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            background-color: $color-secondaire;
+        }
+        .circle:nth-child(3)
+        {
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            background-color: $color-primaire;
+        }
+        .circle:nth-child(4)
+        {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background-color: $color-secondaire;
+        }
+    }
+}

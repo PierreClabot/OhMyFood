@@ -1,0 +1,28 @@
+header{
+    padding: 1rem;
+    display: flex;
+    position: relative;
+    z-index: 100;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 0.3rem rgb(0 0 0 / 50%);
+    img{
+        width: 50%;
+        max-width: 300px;
+        display: block;
+    }
+    .localisation{
+        background-color: rgb(194, 194, 194);
+        display: inline-block;
+        width: 100%;
+        max-width: 300px;
+        border: none;
+    }
+    a{
+        i{
+            font-size: 1.5rem;
+            color: black;
+        }
+    }
+}

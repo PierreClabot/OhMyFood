@@ -1,0 +1,34 @@
+.like{
+
+    width: 25px;
+    height: 25px;
+    svg{
+
+        #heart{
+            transition: fill .4s ease;
+            &:hover{
+                fill: url(#MyGradient);
+                stroke: none;
+            }
+        }
+        
+    }
+    i{
+        position: absolute;
+        font-size: 25px;
+        cursor: pointer;
+        &.heart_empty{
+            z-index: 10;
+            &:hover{
+                color: red;
+            }
+        }
+        &.heart_fill{
+            display: inline-block;
+            background-image: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
+        }
+
+            // color: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
+
+    }
+}
