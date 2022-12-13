@@ -8,4 +8,9 @@
     color: #ffffff;
     box-shadow: 2px 2px 20px #b1b1b1;
     cursor: pointer;
+    &:hover{
+        background: linear-gradient(180deg, lighten($color-secondaire,5%) 0%, darken($color-primaire,5%) 100%);
+        box-shadow: 2px 2px 20px #9c9c9c;
+    }
+
 }

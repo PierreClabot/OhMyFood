@@ -5,10 +5,11 @@
     svg{
 
         #heart{
-            transition: fill .4s ease;
+            animation: fill-like 0.3s;
             &:hover{
                 fill: url(#MyGradient);
                 stroke: none;
+                
             }
         }
         
