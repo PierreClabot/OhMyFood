@@ -1,9 +1,11 @@
 @keyframes rotateCheck {
   0% {
     transform: rotate(360deg);
+    transform: translateX(50px);
   }
   100% {
     transform: rotate(0deg);
+    transform: translateX(0px);
   }
 }
 @keyframes rotate {
@@ -22,10 +24,12 @@
 }
 @keyframes itemAppear {
   0% {
-    transform: scale(0);
+    transform: translateY(50px);
+    opacity: 0;
   }
   100% {
-    transform: scale(1);
+    transform: translateY(0px);
+    opacity: 1;
   }
 }
 @keyframes fill-like {
@@ -36,6 +40,14 @@
     height: 100%;
   }
 }
+@keyframes bg_btn {
+  0% {
+    background-image: linear-gradient(180deg, #FF79DA 0%, #9356dc 100%);
+  }
+  100% {
+    background-image: linear-gradient(180deg, #fface8 0%, #782cd3 100%);
+  }
+}
 .reservation button {
   background: #ff79da;
   background: linear-gradient(180deg, #FF79DA 0%, #9356dc 100%);
@@ -44,6 +56,7 @@
   border-radius: 50px;
   font-weight: 500;
   color: #ffffff;
+  transition-duration: 0.25s;
   box-shadow: 2px 2px 20px #b1b1b1;
   cursor: pointer;
   padding: 1rem;
@@ -51,7 +64,7 @@
   font-weight: 500;
 }
 .reservation button:hover {
-  background: linear-gradient(180deg, #ff93e1 0%, #8641d8 100%);
+  animation: bg_btn 0.3s linear forwards;
   box-shadow: 2px 2px 20px #9c9c9c;
 }
 
@@ -63,6 +76,7 @@
   border-radius: 50px;
   font-weight: 500;
   color: #ffffff;
+  transition-duration: 0.25s;
   box-shadow: 2px 2px 20px #b1b1b1;
   cursor: pointer;
   margin: auto;
@@ -71,7 +85,7 @@
   padding: 1rem 3rem;
 }
 .container-restaurant .btn-command:hover {
-  background: linear-gradient(180deg, #ff93e1 0%, #8641d8 100%);
+  animation: bg_btn 0.3s linear forwards;
   box-shadow: 2px 2px 20px #9c9c9c;
 }
 
@@ -147,12 +161,13 @@
 @media screen and (min-width: 992px) {
   .restaurant .list-restaurants .card-restaurant {
     width: 40%;
-    max-width: 500px;
+    max-width: 600px;
   }
 }
 .like {
   width: 25px;
   height: 25px;
+  position: relative;
 }
 .like svg #heart {
   animation: fill-like 0.3s;
@@ -161,20 +176,23 @@
   fill: url(#MyGradient);
   stroke: none;
 }
-.like i {
+.like .coeur-plein {
   position: absolute;
+  z-index: 99;
+  background: -webkit-linear-gradient(#9c47fc, #356ad2);
+}
+.like .coeur-vide {
+  position: absolute;
+  z-index: 9999;
+  background-color: #ffffff;
+}
+.like .coeur-vide:hover {
+  background-color: transparent;
+}
+.like i {
   font-size: 25px;
   cursor: pointer;
-}
-.like i.heart_empty {
-  z-index: 10;
-}
-.like i.heart_empty:hover {
-  color: red;
-}
-.like i.heart_fill {
-  display: inline-block;
-  background-image: linear-gradient(180deg, #FF79DA 0%, #9356dc 100%);
+  display: block;
 }
 
 header {
@@ -269,6 +287,7 @@ footer nav ul li a {
 
 .fonctionnement {
   padding: 10% 5%;
+  cursor: pointer;
 }
 .fonctionnement h2 {
   font-weight: bold;
@@ -286,6 +305,7 @@ footer nav ul li a {
   color: black;
   box-shadow: 2px 2px 10px rgb(201, 201, 201);
   transition: 0.3s;
+  max-width: 500px;
 }
 .fonctionnement .list-fonctionnement .card-fonctionnement:hover {
   background-color: #f5edff;
@@ -340,6 +360,42 @@ footer nav ul li a {
   justify-content: center;
 }
 
+.card-plat:nth-child(0) {
+  animation-delay: 0s;
+}
+
+.card-plat:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.card-plat:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.card-plat:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.card-plat:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.card-plat:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.card-plat:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.card-plat:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.card-plat:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
 .header_page_restaurant {
   display: flex;
   align-items: center;
@@ -382,10 +438,10 @@ footer nav ul li a {
   display: flex;
   flex-direction: column;
 }
-.container-restaurant .list-plat {
+.container-restaurant .menu .list-plat {
   margin-top: 30px;
 }
-.container-restaurant .list-plat h3 {
+.container-restaurant .menu .list-plat h3 {
   margin-top: 15px;
   font-size: 12px;
   text-transform: uppercase;
@@ -393,7 +449,7 @@ footer nav ul li a {
   width: 30%;
   margin-bottom: 0.8rem;
 }
-.container-restaurant .list-plat h3::after {
+.container-restaurant .menu .list-plat h3::after {
   content: "";
   position: absolute;
   bottom: -25%;
@@ -402,7 +458,7 @@ footer nav ul li a {
   height: 2px;
   background-color: #99e2d0;
 }
-.container-restaurant .list-plat .card-plat {
+.container-restaurant .menu .list-plat .card-plat {
   margin: 10px 0;
   width: 100%;
   border-radius: 10px;
@@ -412,30 +468,32 @@ footer nav ul li a {
   position: relative;
   background-color: #ffffff;
   font-size: 12px;
+  overflow: hidden;
   box-shadow: 1px 1px 10px #dadada;
   cursor: pointer;
-  animation: itemAppear 0.6s;
+  animation-name: itemAppear;
+  animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
   animation-fill-mode: both;
   transform: scale(0);
 }
-.container-restaurant .list-plat .card-plat .card-plat:nth-child(0) {
-  animation-delay: 0s;
-}
-.container-restaurant .list-plat .card-plat .name-plat {
+.container-restaurant .menu .list-plat .card-plat .name-plat {
   margin-left: 5px;
-  width: 90%;
   padding: 0.2rem;
+  width: 90%;
   line-height: 1.3rem;
 }
-.container-restaurant .list-plat .card-plat .name-plat span {
+.container-restaurant .menu .list-plat .card-plat .name-plat span {
   display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-.container-restaurant .list-plat .card-plat .name-plat span.strong-text {
+.container-restaurant .menu .list-plat .card-plat .name-plat span.strong-text {
   font-weight: bold;
   font-size: 0.9rem;
 }
-.container-restaurant .list-plat .card-plat .price-plat {
+.container-restaurant .menu .list-plat .card-plat .price-plat {
   width: 15%;
   display: flex;
   justify-content: center;
@@ -444,8 +502,9 @@ footer nav ul li a {
   align-items: flex-end;
   margin-bottom: 1rem;
 }
-.container-restaurant .list-plat .card-plat .check {
-  width: 0;
+.container-restaurant .menu .list-plat .card-plat .check {
+  width: 50px;
+  transform: translateX(50px);
   border-radius: 0 10px 10px 0;
   background-color: #99e2d0;
   height: 100%;
@@ -454,453 +513,28 @@ footer nav ul li a {
   justify-content: center;
   font-size: 20px;
   color: #f1f1f1;
+  position: absolute;
+  right: 0;
   box-shadow: 2px 2px 2px #c7c7c7;
-  transition: all 0.5s;
-  visibility: hidden;
+  transition: transform 0.5s;
 }
-.container-restaurant .list-plat .card-plat .check i {
-  opacity: 0;
-}
-.container-restaurant .list-plat .card-plat:hover {
+.container-restaurant .menu .list-plat .card-plat:hover {
   border-radius: 10px;
 }
-.container-restaurant .list-plat .card-plat:hover .check {
-  width: 20%;
-  visibility: visible;
-}
-.container-restaurant .list-plat .card-plat:hover .check i {
-  opacity: 1;
-  animation: rotateCheck 0.5s;
-}
-.container-restaurant .list-plat .card-plat .card-plat:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.container-restaurant .list-plat .card-plat .name-plat {
-  margin-left: 5px;
-  width: 90%;
-  padding: 0.2rem;
-  line-height: 1.3rem;
-}
-.container-restaurant .list-plat .card-plat .name-plat span {
-  display: block;
-}
-.container-restaurant .list-plat .card-plat .name-plat span.strong-text {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-.container-restaurant .list-plat .card-plat .price-plat {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  height: 100%;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-}
-.container-restaurant .list-plat .card-plat .check {
-  width: 0;
-  border-radius: 0 10px 10px 0;
-  background-color: #99e2d0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #f1f1f1;
-  box-shadow: 2px 2px 2px #c7c7c7;
-  transition: all 0.5s;
-  visibility: hidden;
-}
-.container-restaurant .list-plat .card-plat .check i {
-  opacity: 0;
-}
-.container-restaurant .list-plat .card-plat:hover {
-  border-radius: 10px;
-}
-.container-restaurant .list-plat .card-plat:hover .check {
-  width: 20%;
-  visibility: visible;
-}
-.container-restaurant .list-plat .card-plat:hover .check i {
-  opacity: 1;
-  animation: rotateCheck 0.5s;
-}
-.container-restaurant .list-plat .card-plat .card-plat:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.container-restaurant .list-plat .card-plat .name-plat {
-  margin-left: 5px;
-  width: 90%;
-  padding: 0.2rem;
-  line-height: 1.3rem;
-}
-.container-restaurant .list-plat .card-plat .name-plat span {
-  display: block;
-}
-.container-restaurant .list-plat .card-plat .name-plat span.strong-text {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-.container-restaurant .list-plat .card-plat .price-plat {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  height: 100%;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-}
-.container-restaurant .list-plat .card-plat .check {
-  width: 0;
-  border-radius: 0 10px 10px 0;
-  background-color: #99e2d0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #f1f1f1;
-  box-shadow: 2px 2px 2px #c7c7c7;
-  transition: all 0.5s;
-  visibility: hidden;
-}
-.container-restaurant .list-plat .card-plat .check i {
-  opacity: 0;
-}
-.container-restaurant .list-plat .card-plat:hover {
-  border-radius: 10px;
-}
-.container-restaurant .list-plat .card-plat:hover .check {
-  width: 20%;
-  visibility: visible;
-}
-.container-restaurant .list-plat .card-plat:hover .check i {
-  opacity: 1;
-  animation: rotateCheck 0.5s;
-}
-.container-restaurant .list-plat .card-plat .card-plat:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.container-restaurant .list-plat .card-plat .name-plat {
-  margin-left: 5px;
-  width: 90%;
-  padding: 0.2rem;
-  line-height: 1.3rem;
-}
-.container-restaurant .list-plat .card-plat .name-plat span {
-  display: block;
-}
-.container-restaurant .list-plat .card-plat .name-plat span.strong-text {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-.container-restaurant .list-plat .card-plat .price-plat {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  height: 100%;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-}
-.container-restaurant .list-plat .card-plat .check {
-  width: 0;
-  border-radius: 0 10px 10px 0;
-  background-color: #99e2d0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #f1f1f1;
-  box-shadow: 2px 2px 2px #c7c7c7;
-  transition: all 0.5s;
-  visibility: hidden;
-}
-.container-restaurant .list-plat .card-plat .check i {
-  opacity: 0;
-}
-.container-restaurant .list-plat .card-plat:hover {
-  border-radius: 10px;
-}
-.container-restaurant .list-plat .card-plat:hover .check {
-  width: 20%;
-  visibility: visible;
-}
-.container-restaurant .list-plat .card-plat:hover .check i {
-  opacity: 1;
-  animation: rotateCheck 0.5s;
-}
-.container-restaurant .list-plat .card-plat .card-plat:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.container-restaurant .list-plat .card-plat .name-plat {
-  margin-left: 5px;
-  width: 90%;
-  padding: 0.2rem;
-  line-height: 1.3rem;
-}
-.container-restaurant .list-plat .card-plat .name-plat span {
-  display: block;
-}
-.container-restaurant .list-plat .card-plat .name-plat span.strong-text {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-.container-restaurant .list-plat .card-plat .price-plat {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  height: 100%;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-}
-.container-restaurant .list-plat .card-plat .check {
-  width: 0;
-  border-radius: 0 10px 10px 0;
-  background-color: #99e2d0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #f1f1f1;
-  box-shadow: 2px 2px 2px #c7c7c7;
-  transition: all 0.5s;
-  visibility: hidden;
-}
-.container-restaurant .list-plat .card-plat .check i {
-  opacity: 0;
-}
-.container-restaurant .list-plat .card-plat:hover {
-  border-radius: 10px;
-}
-.container-restaurant .list-plat .card-plat:hover .check {
-  width: 20%;
-  visibility: visible;
-}
-.container-restaurant .list-plat .card-plat:hover .check i {
-  opacity: 1;
-  animation: rotateCheck 0.5s;
-}
-.container-restaurant .list-plat .card-plat .card-plat:nth-child(5) {
-  animation-delay: 0.5s;
-}
-.container-restaurant .list-plat .card-plat .name-plat {
-  margin-left: 5px;
-  width: 90%;
-  padding: 0.2rem;
-  line-height: 1.3rem;
-}
-.container-restaurant .list-plat .card-plat .name-plat span {
-  display: block;
-}
-.container-restaurant .list-plat .card-plat .name-plat span.strong-text {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-.container-restaurant .list-plat .card-plat .price-plat {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  height: 100%;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-}
-.container-restaurant .list-plat .card-plat .check {
-  width: 0;
-  border-radius: 0 10px 10px 0;
-  background-color: #99e2d0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #f1f1f1;
-  box-shadow: 2px 2px 2px #c7c7c7;
-  transition: all 0.5s;
-  visibility: hidden;
-}
-.container-restaurant .list-plat .card-plat .check i {
-  opacity: 0;
-}
-.container-restaurant .list-plat .card-plat:hover {
-  border-radius: 10px;
-}
-.container-restaurant .list-plat .card-plat:hover .check {
-  width: 20%;
-  visibility: visible;
-}
-.container-restaurant .list-plat .card-plat:hover .check i {
-  opacity: 1;
-  animation: rotateCheck 0.5s;
-}
-.container-restaurant .list-plat .card-plat .card-plat:nth-child(6) {
-  animation-delay: 0.6s;
-}
-.container-restaurant .list-plat .card-plat .name-plat {
-  margin-left: 5px;
-  width: 90%;
-  padding: 0.2rem;
-  line-height: 1.3rem;
-}
-.container-restaurant .list-plat .card-plat .name-plat span {
-  display: block;
-}
-.container-restaurant .list-plat .card-plat .name-plat span.strong-text {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-.container-restaurant .list-plat .card-plat .price-plat {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  height: 100%;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-}
-.container-restaurant .list-plat .card-plat .check {
-  width: 0;
-  border-radius: 0 10px 10px 0;
-  background-color: #99e2d0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #f1f1f1;
-  box-shadow: 2px 2px 2px #c7c7c7;
-  transition: all 0.5s;
-  visibility: hidden;
-}
-.container-restaurant .list-plat .card-plat .check i {
-  opacity: 0;
-}
-.container-restaurant .list-plat .card-plat:hover {
-  border-radius: 10px;
-}
-.container-restaurant .list-plat .card-plat:hover .check {
-  width: 20%;
-  visibility: visible;
-}
-.container-restaurant .list-plat .card-plat:hover .check i {
-  opacity: 1;
-  animation: rotateCheck 0.5s;
-}
-.container-restaurant .list-plat .card-plat .card-plat:nth-child(7) {
-  animation-delay: 0.7s;
-}
-.container-restaurant .list-plat .card-plat .name-plat {
-  margin-left: 5px;
-  width: 90%;
-  padding: 0.2rem;
-  line-height: 1.3rem;
-}
-.container-restaurant .list-plat .card-plat .name-plat span {
-  display: block;
-}
-.container-restaurant .list-plat .card-plat .name-plat span.strong-text {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-.container-restaurant .list-plat .card-plat .price-plat {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  height: 100%;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-}
-.container-restaurant .list-plat .card-plat .check {
-  width: 0;
-  border-radius: 0 10px 10px 0;
-  background-color: #99e2d0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #f1f1f1;
-  box-shadow: 2px 2px 2px #c7c7c7;
-  transition: all 0.5s;
-  visibility: hidden;
-}
-.container-restaurant .list-plat .card-plat .check i {
-  opacity: 0;
-}
-.container-restaurant .list-plat .card-plat:hover {
-  border-radius: 10px;
-}
-.container-restaurant .list-plat .card-plat:hover .check {
-  width: 20%;
-  visibility: visible;
-}
-.container-restaurant .list-plat .card-plat:hover .check i {
-  opacity: 1;
-  animation: rotateCheck 0.5s;
-}
-.container-restaurant .list-plat .card-plat .card-plat:nth-child(8) {
-  animation-delay: 0.8s;
-}
-.container-restaurant .list-plat .card-plat .name-plat {
-  margin-left: 5px;
-  width: 90%;
-  padding: 0.2rem;
-  line-height: 1.3rem;
-}
-.container-restaurant .list-plat .card-plat .name-plat span {
-  display: block;
-}
-.container-restaurant .list-plat .card-plat .name-plat span.strong-text {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-.container-restaurant .list-plat .card-plat .price-plat {
-  width: 15%;
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  height: 100%;
-  align-items: flex-end;
-  margin-bottom: 1rem;
-}
-.container-restaurant .list-plat .card-plat .check {
-  width: 0;
-  border-radius: 0 10px 10px 0;
-  background-color: #99e2d0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #f1f1f1;
-  box-shadow: 2px 2px 2px #c7c7c7;
-  transition: all 0.5s;
-  visibility: hidden;
-}
-.container-restaurant .list-plat .card-plat .check i {
-  opacity: 0;
-}
-.container-restaurant .list-plat .card-plat:hover {
-  border-radius: 10px;
-}
-.container-restaurant .list-plat .card-plat:hover .check {
-  width: 20%;
-  visibility: visible;
-}
-.container-restaurant .list-plat .card-plat:hover .check i {
-  opacity: 1;
-  animation: rotateCheck 0.5s;
+.container-restaurant .menu .list-plat .card-plat:hover .check {
+  animation: rotateCheck 0.5s forwards;
 }
 
 @media screen and (min-width: 992px) {
   .container-restaurant .menu {
     flex-direction: row;
     justify-content: space-around;
+  }
+  .container-restaurant .menu .list-plat {
+    width: 30%;
+  }
+  .container-restaurant .menu .list-plat .card-plat {
+    padding: 0.2rem;
   }
 }
 * {

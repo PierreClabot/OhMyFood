@@ -1,15 +1,18 @@
+// @use "sass:color";
 @mixin button{
     background: #ff79da;
     background: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
+    // background-image: linear-gradient(0deg, color.scale($color-primaire, $alpha: -10%) 0%, color.scale($color-secondaire, $alpha: -10%) 100%);
     border: none;
     outline: none;
     border-radius: 50px;
     font-weight: 500;
     color: #ffffff;
+    transition-duration: 0.25s;
     box-shadow: 2px 2px 20px #b1b1b1;
     cursor: pointer;
     &:hover{
-        background: linear-gradient(180deg, lighten($color-secondaire,5%) 0%, darken($color-primaire,5%) 100%);
+        animation: bg_btn 0.3s linear forwards;
         box-shadow: 2px 2px 20px #9c9c9c;
     }
 

@@ -2,6 +2,7 @@
 
     width: 25px;
     height: 25px;
+    position: relative;
     svg{
 
         #heart{
@@ -9,27 +10,44 @@
             &:hover{
                 fill: url(#MyGradient);
                 stroke: none;
-                
             }
         }
         
     }
-    i{
+    .coeur-plein{
         position: absolute;
-        font-size: 25px;
-        cursor: pointer;
-        &.heart_empty{
-            z-index: 10;
-            &:hover{
-                color: red;
-            }
-        }
-        &.heart_fill{
-            display: inline-block;
-            background-image: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
-        }
-
-            // color: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
+        z-index: 99;
+        
+        background: -webkit-linear-gradient(#9c47fc, #356ad2);
 
     }
+    .coeur-vide{
+        position: absolute;
+        z-index: 9999;
+        background-color: #ffffff;
+        &:hover{
+            background-color: transparent;
+        
+        }
+    }
+    i{
+        
+        font-size: 25px;
+        cursor: pointer;
+        display: block;
+        
+        // &.heart_empty{
+        //     z-index: 10;
+        //     &:hover{
+        //         color: red;
+        //     }
+        // }
+        // &.heart_fill{
+        //     display: inline-block;
+        //     background-image: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
+        // }
+        // color: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
+
+    }
+
 }
