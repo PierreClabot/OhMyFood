@@ -2,7 +2,6 @@
 @mixin button{
     background: #ff79da;
     background: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
-    // background-image: linear-gradient(0deg, color.scale($color-primaire, $alpha: -10%) 0%, color.scale($color-secondaire, $alpha: -10%) 100%);
     border: none;
     outline: none;
     border-radius: 50px;
@@ -10,10 +9,27 @@
     color: #ffffff;
     transition-duration: 0.25s;
     box-shadow: 2px 2px 20px #b1b1b1;
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
     &:hover{
-        animation: bg_btn 0.3s linear forwards;
         box-shadow: 2px 2px 20px #9c9c9c;
+        animation: bg_btn 0.9s forwards;
+        // &::before{
+        //     opacity: 1;
+        // }   
+        
     }
+    // &::before {
+    //     opacity: 0;
+    //     transition: 0.5s;
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     height: 100%;
+    //     width: 100%;
+    //     background:linear-gradient(0deg, darken($color-primaire,10%) 0%,lighten($color-secondaire,10%) 100%);
+    //   }
 
 }

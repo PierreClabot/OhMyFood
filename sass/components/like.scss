@@ -1,53 +1,75 @@
-.like{
+// .like{
 
-    width: 25px;
-    height: 25px;
-    position: relative;
-    svg{
+//     width: 25px;
+//     height: 25px;
+//     position: relative;
+//     svg{
 
-        #heart{
-            animation: fill-like 0.3s;
-            &:hover{
-                fill: url(#MyGradient);
-                stroke: none;
+//         #heart{
+//             animation: fill-like 0.3s;
+//             &:hover{
+//                 fill: url(#MyGradient);
+//                 stroke: none;
+//             }
+//         }
+        
+//     }
+//     display: flex;
+//     height: 50px;
+//     align-items: center;
+//     justify-content: center;
+//     font-size: 1.5rem;
+//     .fa-solid.fa-heart { 
+//         display: none;
+//     }
+//     &:hover {
+//         cursor: pointer;                        // cache le coeur vide
+//         .fa-regular.fa-heart {
+//             display: none;
+//         }
+//         .fa-solid.fa-heart {                    // fait apparaitre le coeur plein pour y affecter le dégradé
+//             display: inline;
+//         }
+//         opacity: 0;                             // opère le dégradé de couleurs
+//         background: linear-gradient($--primary 20%, $--secondary 100%);
+//         animation: effet-opacity 1.5s ease;
+//         background-clip: border-box;
+//         -webkit-background-clip: text;
+//         -webkit-text-fill-color: transparent;
+//     }
+//     // i{
+//     //     font-size: 25px;
+//     //     cursor: pointer;
+//     //     display: block;
+//     // }
+
+// }
+.like
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    .fa-solid.fa-heart { 
+        display: none;
+    }
+    &:hover {
+            cursor: pointer;                        // cache le coeur vide
+            .fa-regular.fa-heart {
+                display: none;
             }
-        }
-        
+            .fa-solid.fa-heart {                    // fait apparaitre le coeur plein pour y affecter le dégradé
+                display: inline;
+            }
+            opacity: 0;                             // opère le dégradé de couleurs
+            background: linear-gradient($color-primaire 20%, $color-secondaire 100%);
+            animation: effet-opacity 0.5s cubic-bezier(.56,.12,.56,.86) forwards;
+            background-clip: border-box;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
     }
-    .coeur-plein{
-        position: absolute;
-        z-index: 99;
-        
-        background: -webkit-linear-gradient(#9c47fc, #356ad2);
-
-    }
-    .coeur-vide{
-        position: absolute;
-        z-index: 9999;
-        background-color: #ffffff;
-        &:hover{
-            background-color: transparent;
-        
-        }
-    }
-    i{
-        
-        font-size: 25px;
-        cursor: pointer;
-        display: block;
-        
-        // &.heart_empty{
-        //     z-index: 10;
-        //     &:hover{
-        //         color: red;
-        //     }
-        // }
-        // &.heart_fill{
-        //     display: inline-block;
-        //     background-image: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
-        // }
-        // color: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
-
-    }
-
+}
+@keyframes effet-opacity {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

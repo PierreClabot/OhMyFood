@@ -35,21 +35,15 @@
   }
   
 
-@keyframes fill-like {
-    0%{
-        height: 0%;
-    }
-    100%{
-        height: 100%;
-    }
-}
 
 @keyframes bg_btn {
     0%{
-        background-image: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
+        background:linear-gradient(0deg, darken($color-primaire,10%) 0%,lighten($color-secondaire,10%) 100%);
+        opacity: 0;
     }
 
     100%{
-        background-image: linear-gradient(180deg, lighten($color-secondaire,10%) 0%, darken($color-primaire,10%) 100%);
+        background: linear-gradient(180deg, lighten($color-secondaire,1%) 0%, darken($color-primaire,1%) 100%);
+        opacity: 1;
     }
 }
