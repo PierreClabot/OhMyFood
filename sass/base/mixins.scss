@@ -1,5 +1,5 @@
 // @use "sass:color";
-@mixin button{
+@mixin button($text){
     background: #ff79da;
     background: linear-gradient(180deg, $color-secondaire 0%, $color-primaire 100%);
     border: none;
@@ -7,29 +7,32 @@
     border-radius: 50px;
     font-weight: 500;
     color: #ffffff;
-    transition-duration: 0.25s;
+    transition-duration: 0.2s;
     box-shadow: 2px 2px 20px #b1b1b1;
     position: relative;
     overflow: hidden;
     cursor: pointer;
     &:hover{
-        box-shadow: 2px 2px 20px #9c9c9c;
-        animation: bg_btn 0.9s forwards;
-        // &::before{
-        //     opacity: 1;
-        // }   
+        box-shadow: 2px 2px 20px #858585;
+        
+        &::before{
+            opacity: 1;
+        }   
         
     }
-    // &::before {
-    //     opacity: 0;
-    //     transition: 0.5s;
-    //     content: "";
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     height: 100%;
-    //     width: 100%;
-    //     background:linear-gradient(0deg, darken($color-primaire,10%) 0%,lighten($color-secondaire,10%) 100%);
-    //   }
+    &::before {
+        opacity: 0;
+        transition: 0.5s;
+        content: $text;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background:linear-gradient(0deg, darken($color-primaire,10%) 0%,lighten($color-secondaire,10%) 100%);
+      }
 
 }

@@ -1,6 +1,6 @@
 .reservation{
     button{
-        @include button;
+        @include button("Explorer nos restaurants");
         padding:1rem;
         font-size: 1rem;
         font-weight: 500;
@@ -10,7 +10,7 @@
 .container-restaurant{
 
     .btn-command{
-        @include button;
+        @include button("Commander");
         margin: auto;
         display: block;
         margin-top: 2rem;
