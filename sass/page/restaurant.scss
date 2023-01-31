@@ -1,6 +1,6 @@
 
 
-    @for $i from 0 to 9 
+    @for $i from 0 to 9
     {
         .card-plat:nth-child(#{$i}){
             animation-delay: #{$i/10}s;
